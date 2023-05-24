@@ -1,0 +1,79 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TURegistration.com/course-registration">
+
+  <!-- Define Custom types -->
+  <xs:simpleType name="StudentCodeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SubjectCodeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{2}\d{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SectionType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DayOfWeekType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MO"/>
+      <xs:enumeration value="TU"/>
+      <xs:enumeration value="WE"/>
+      <xs:enumeration value="TH"/>
+      <xs:enumeration value="FR"/>
+      <xs:enumeration value="SA"/>
+      <xs:enumeration value="SU"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TypeOfRegistrationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Credits"/>
+      <xs:enumeration value="Pass/Fail"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="StudyDateType">
+    <xs:sequence>
+      <xs:element name="Day" type="DayOfWeekType"/>
+      <xs:element name="Time" type="xs:string"/>
+      <xs:element name="Notation" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define Request element -->
+  <xs:element name="SearchAdditionalSubjectsRequest">
+    <xs:complexType>
+      <xs:attribute name="SubjectCode" type="SubjectCodeType" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Define response element -->
+  <xs:element name="SearchAdditionalSubjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Subject" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubjectName" type="xs:string"/>
+              <xs:element name="SubjectCode" type="SubjectCodeType"/>
+              <xs:element name="Section" type="SectionType"/>
+              <xs:element name="StudyTime" type="StudyDateType"/>
+              <xs:element name="MidtermTestDate" type="StudyDateType"/>
+              <xs:element name="FinalTestDate" type="StudyDateType"/>
+              <xs:element name="Credits" type="xs:int"/>
+              <xs:element name="Instructor" type="xs:string"/>
+              <xs:element name="Seats" type="xs:int"/>
+              <xs:element name="SeatsLeft" type="xs:int"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
