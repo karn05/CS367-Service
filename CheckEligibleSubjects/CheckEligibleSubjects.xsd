@@ -38,7 +38,7 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="TestDateType">
+  <xs:complexType name="StudyDateType">
     <xs:sequence>
       <xs:element name="Day" type="DayOfWeekType"/>
       <xs:element name="Time" type="xs:string"/>
@@ -63,9 +63,9 @@
               <xs:element name="SubjectName" type="xs:string"/>
               <xs:element name="SubjectCode" type="SubjectCodeType"/>
               <xs:element name="Section" type="SectionType"/>
-              <xs:element name="StudyTime" type="xs:string"/>
-              <xs:element name="MidtermTestDate" type="TestDateType"/>
-              <xs:element name="FinalTestDate" type="TestDateType"/>
+              <xs:element name="StudyTime" type="StudyDateType"/>
+              <xs:element name="MidtermTestDate" type="StudyDateType"/>
+              <xs:element name="FinalTestDate" type="StudyDateType"/>
               <xs:element name="Credits" type="xs:int"/>
               <xs:element name="RegistrationType" type="RegistrationType"/>
               <xs:element name="Instructor" type="xs:string"/>
