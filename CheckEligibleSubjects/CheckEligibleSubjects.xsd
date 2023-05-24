@@ -24,14 +24,12 @@
       <xs:element name="Notation" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:element name="CheckEligibleSubjectsRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+   
+<xs:element name="CheckEligibleSubjectsRequest">
+  <xs:complexType>
+    <xs:attribute name="StudentCode" type="StudentCodeType" use="required"/>
+  </xs:complexType>
+</xs:element>
   
   <xs:element name="CheckEligibleSubjectsResponse">
     <xs:complexType>
