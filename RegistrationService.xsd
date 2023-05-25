@@ -73,85 +73,89 @@
   </type>
   
   <!-- Define Request elements -->
-  <xs:element name="CheckEligibleSubjectsRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="SearchAdditionalSubjectsRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="SubjectCode" type="SubjectCodeType"/>
-        <xs:element name="Semester" type="SemesterType"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="RegisterSubjectsRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="Subjects" maxOccurs="unbounded">
-        <xs:element name="Semester" type="SemesterType"/> 
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="VerifyRegistrationDataRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="Subjects" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>        
-            
-  <xs:element name="InitiatePaymentRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="Subjects" maxOccurs="unbounded">
-        <xs:element name="Semester" type="SemesterType"/> 
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="TotalCredits" type="xs:int"/> 
-              <xs:element name="TotalMoney" type="xs:decimal"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-            
-  <xs:element name="getSubjectsDataRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="Semester" type="SemesterType"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>  
-            
+<xs:element name="CheckEligibleSubjectsRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for checking eligible subjects. Contains the student code. -->
+
+<xs:element name="SearchAdditionalSubjectsRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+      <xs:element name="SubjectCode" type="SubjectCodeType"/>
+      <xs:element name="Semester" type="SemesterType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for searching additional subjects. Contains the student code, subject code, and semester. -->
+
+<xs:element name="RegisterSubjectsRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+      <xs:element name="Subjects" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubjectCode" type="SubjectCodeType"/>
+            <xs:element name="Section" type="SectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for registering subjects. Contains the student code and a list of subjects with their respective subject codes and sections. -->
+
+<xs:element name="VerifyRegistrationDataRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+      <xs:element name="Subjects" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubjectCode" type="SubjectCodeType"/>
+            <xs:element name="Section" type="SectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for verifying registration data. Contains the student code and a list of subjects with their respective subject codes and sections. -->
+
+<xs:element name="InitiatePaymentRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+      <xs:element name="Subjects" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubjectCode" type="SubjectCodeType"/>
+            <xs:element name="Section" type="SectionType"/>
+            <xs:element name="TotalCredits" type="xs:int"/>
+            <xs:element name="TotalMoney" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for initiating payment. Contains the student code, a list of subjects with their respective subject codes and sections, and the total credits and total money. -->
+
+<xs:element name="getSubjectsDataRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="StudentCode" type="StudentCodeType"/>
+      <xs:element name="Semester" type="SemesterType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<!-- Request element for getting subjects data. Contains the student code and semester. -->
+
   <!-- Define Response message -->
   <xs:element name="CheckEligibleSubjectsResponse">
     <xs:complexType>
