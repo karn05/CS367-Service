@@ -122,17 +122,7 @@
         </xs:element>
       </xs:sequence>
     </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="getSubjectsDataRequest">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="Semester" type="SemesterType"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-            
+  </xs:element>        
             
   <xs:element name="InitiatePaymentRequest">
     <xs:complexType>
@@ -152,7 +142,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+            
+  <xs:element name="getSubjectsDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StudentCode" type="StudentCodeType"/> 
+        <xs:element name="Semester" type="SemesterType"/> 
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>  
+            
   <!-- Define Response message -->
   <xs:element name="CheckEligibleSubjectsResponse">
     <xs:complexType>
@@ -307,6 +306,14 @@
  <message name="InitiatePaymentOutput">
             <part name="body" element="xsdl:InitiatePaymentRespond" />
  </message>  
+ 
+ <message name="getSubjectsDataInput">
+            <part name="body" element="xsdl:getSubjectsDataRequest" />
+ </message>
+             
+ <message name="getSubjectsDataOutput">
+            <part name="body" element="xsdl:getSubjectsDataRespond" />
+ </message>  
             
           
 <!-- PORT -->
@@ -334,6 +341,11 @@
             <operation name="InitiatePayment">
                         <input message="tns:InitiatePaymentInput" />
                         <output message="tns:InitiatePaymentOutput" />
+            </operation>
+             
+            <operation name="getSubjectsData">
+                        <input message="tns:getSubjectsDataInput" />
+                        <output message="tns:getSubjectsDataOutput" />
             </operation>
  </portType>
              
@@ -396,6 +408,19 @@
 
                        <operation name="InitiatePayment">
                          <soap:operation soapAction="http://www.TURegistration.com/InitiatePayment" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+                        
+                        <operation name="getSubjectsData">
+                         <soap:operation soapAction="http://www.TURegistration.com/getSubjectsData" />
 
                                     <input>
                                        <soap:body use="literal" />
