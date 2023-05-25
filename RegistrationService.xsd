@@ -354,95 +354,94 @@
  </portType>
              
 <!-- Binding -->
-            <binding name="CourseRegistrationSoapBinding" 
-                     type="tns:CourseRegistrationPortType">
-            <soap:binding style="document" transport="http://TURegistration.xmlsoap.org/soap/http" />
+<binding name="CourseRegistrationSoapBinding" type="tns:CourseRegistrationPortType">
+  <soap:binding style="document" transport="http://TURegistration.xmlsoap.org/soap/http" />
+  
+  <!-- CheckEligibleSubjects operation -->
+  <operation name="CheckEligibleSubjects">
+    <soap:operation soapAction="http://www.TURegistration.com/CheckEligibleSubjects" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+  
+  <!-- SearchAdditionalSubjects operation -->
+  <operation name="SearchAdditionalSubjects">
+    <soap:operation soapAction="http://www.TURegistration.com/SearchAdditionalSubjects" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+  
+  <!-- RegisterSubjects operation -->
+  <operation name="RegisterSubjects">
+    <soap:operation soapAction="http://www.TURegistration.com/RegisterSubjects" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+  
+  <!-- VerifyRegistrationData operation -->
+  <operation name="VerifyRegistrationData">
+    <soap:operation soapAction="http://www.TURegistration.com/VerifyRegistrationData" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+  
+  <!-- InitiatePayment operation -->
+  <operation name="InitiatePayment">
+    <soap:operation soapAction="http://www.TURegistration.com/InitiatePayment" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+  
+  <!-- getSubjectsData operation -->
+  <operation name="getSubjectsData">
+    <soap:operation soapAction="http://www.TURegistration.com/getSubjectsData" />
+    
+    <input>
+      <soap:body use="literal" />
+    </input>
+    
+    <output>
+      <soap:body use="literal" />
+    </output>
+  </operation>
+</binding>
 
-                        <operation name="CheckEligibleSubjects">
-                         <soap:operation soapAction="http://www.TURegistration.com/CheckEligibleSubjects" />
+<!-- Service -->
+<service name="CourseRegistrationService">
+  <port name="CourseRegistrationPort" binding="tns:CourseRegistrationSoapBinding">
+    <soap:address location="http://www.TURegistration.com/course-registration" />
+  </port>
+</service>
 
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-
-                        <operation name="SearchAdditionalSubjects">
-                         <soap:operation soapAction="http://www.TURegistration.com/SearchAdditionalSubjects" />
-
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-
-                        <operation name="RegisterSubjects">
-                          <soap:operation soapAction="http://www.TURegistration.com/RegisterSubjects" />
-
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-
-                      <operation name="VerifyRegistrationData">
-                         <soap:operation soapAction="http://www.TURegistration.com/VerifyRegistrationData" />
-
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-
-                       <operation name="InitiatePayment">
-                         <soap:operation soapAction="http://www.TURegistration.com/InitiatePayment" />
-
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-                        
-                        <operation name="getSubjectsData">
-                         <soap:operation soapAction="http://www.TURegistration.com/getSubjectsData" />
-
-                                    <input>
-                                       <soap:body use="literal" />
-                                    </input>
-
-                                    <output>
-                                        <soap:body use="literal" />
-                                    </output>
-
-                        </operation>
-            </binding>
-
-
-             <service name="CourseRegistrationService">
-             <port name="CourseRegistrationPort" 
-            binding="tns:CourseRegistrationSoapBinding">
-             <soap:address location="http://www.TURegistration.com/course-registration" />
-             </port>
-             </service>
-             
 </xs:schema>
+
