@@ -63,6 +63,12 @@
     </xs:sequence>
   </xs:complexType>
 
+<xs:simpleType name="SemesterType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[1-3]/[0-9]{4}"/>
+  </xs:restriction>
+</xs:simpleType>
+
       </schema>
   </type>
   
@@ -79,7 +85,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="StudentCode" type="StudentCodeType"/> 
-        <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+        <xs:element name="SubjectCode" type="SubjectCodeType"/>
+        <xs:element name="Semester" type="SemesterType"/> 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -89,6 +96,7 @@
       <xs:sequence>
         <xs:element name="StudentCode" type="StudentCodeType"/> 
         <xs:element name="Subjects" maxOccurs="unbounded">
+        <xs:element name="Semester" type="SemesterType"/> 
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubjectCode" type="SubjectCodeType"/> 
@@ -116,11 +124,22 @@
     </xs:complexType>
   </xs:element>
   
+  <xs:element name="getSubjectsDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StudentCode" type="StudentCodeType"/> 
+        <xs:element name="Semester" type="SemesterType"/> 
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+            
+            
   <xs:element name="InitiatePaymentRequest">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="StudentCode" type="StudentCodeType"/> 
         <xs:element name="Subjects" maxOccurs="unbounded">
+        <xs:element name="Semester" type="SemesterType"/> 
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SubjectCode" type="SubjectCodeType"/> 
@@ -222,6 +241,28 @@
       <xs:sequence>
         <xs:element name="TotalAmount" type="xs:decimal"/> 
         <xs:element name="DueDate" type="xs:string"/> 
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+            
+            
+  <xs:element name="getSubjectsDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Subject" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubjectName" type="xs:string"/> 
+              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+              <xs:element name="Section" type="SectionType"/> 
+              <xs:element name="StudyTime" type="StudyDateType"/> 
+              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+              <xs:element name="FinalTestDate" type="StudyDateType"/> 
+              <xs:element name="Credits" type="xs:int"/> 
+              <xs:element name="Instructor" type="xs:string"/> 
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
