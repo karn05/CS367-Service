@@ -134,7 +134,7 @@
     </xs:complexType>
   </xs:element>
   
-  <!-- Define Response elements -->
+  <!-- Define Response message -->
   <xs:element name="CheckEligibleSubjectsResponse">
     <xs:complexType>
       <xs:sequence>
@@ -183,6 +183,31 @@
     </xs:complexType>
   </xs:element>
   
+  <xs:element name="RegisterSubjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Subject" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SubjectName" type="xs:string"/> 
+              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+              <xs:element name="Section" type="SectionType"/> 
+              <xs:element name="StudyTime" type="StudyDateType"/> 
+              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+              <xs:element name="FinalTestDate" type="StudyDateType"/> 
+              <xs:element name="Credits" type="xs:int"/> 
+              <xs:element name="Instructor" type="xs:string"/> 
+              <xs:element name="Seats" type="xs:int"/> 
+              <xs:element name="SeatsLeft" type="xs:int"/> 
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TotalCredits" type="xs:int"/> 
+        <xs:element name="TotalMoney" type="xs:decimal"/> 
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+            
   <xs:element name="VerifyRegistrationDataResponse">
     <xs:complexType>
       <xs:sequence>
@@ -200,5 +225,154 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+            
+ <--! Assign Message -->
+ <message name="CheckEligibleSubjectsInput">
+            <part name="body" element="xsdl:TradePriceRequest" />
+ </message>
+             
+ <message name="CheckEligibleSubjectsOutput">
+            <part name="body" element="xsdl:TradePriceRespond" />
+ </message>
+             
+ <message name="SearchAdditionalSubjectsInput">
+             <part name="body" element="xsdl:StockInfoRequest" />
+ </message>
+             
+ <message name="SearchAdditionalSubjectsOutput">
+            <part name="body" element="xsdl:StockInfoRespond" />
+ </message>
+             
+ <message name="RegisterSubjectsInput">
+            <part name="body" element="xsdl:RegisterSubjectsRequest" />
+ </message>
+             
+ <message name="RegisterSubjectsOutput">
+            <part name="body" element="xsdl:RegisterSubjectsRespond" />
+ </message>    
+             
+ <message name="VerifyRegistrationDataInput">
+            <part name="body" element="xsdl:VerifyRegistrationDataRequest" />
+ </message>
+             
+ <message name="VerifyRegistrationDataOutput">
+            <part name="body" element="xsdl:VerifyRegistrationDataRespond" />
+ </message>  
+             
+ <message name="InitiatePaymentInput">
+            <part name="body" element="xsdl:InitiatePaymentRequest" />
+ </message>
+             
+ <message name="InitiatePaymentOutput">
+            <part name="body" element="xsdl:InitiatePaymentRespond" />
+ </message>  
+            
+          
+<!-- PORT -->
+ <portType name="CourseRegistrationPortType">
+            <operation name="CheckEligibleSubjects">
+                        <input message="tns:CheckEligibleSubjectsInput" />
+                        <output message="tns:CheckEligibleSubjectsOutput" />
+            </operation>
+             
+             <operation name="SearchAdditionalSubjects">
+                        <input message="tns:SearchAdditionalSubjectsInput" />
+                        <output message="tns:SearchAdditionalSubjectsOutput" />
+            </operation>
+             
+            <operation name="RegisterSubjects">
+                        <input message="tns:RegisterSubjectsInput" />
+                        <output message="tns:RegisterSubjectsOutput" />
+            </operation>
+             
+            <operation name="VerifyRegistrationData">
+                        <input message="tns:VerifyRegistrationDataInput" />
+                        <output message="tns:VerifyRegistrationDataOutput" />
+            </operation>
+             
+            <operation name="InitiatePayment">
+                        <input message="tns:InitiatePaymentInput" />
+                        <output message="tns:InitiatePaymentOutput" />
+            </operation>
+ </portType>
+             
+<!-- Binding -->
+            <binding name="CourseRegistrationSoapBinding" 
+                     type="tns:CourseRegistrationPortType">
+            <soap:binding style="document" transport="http://TURegistration.xmlsoap.org/soap/http" />
+
+                        <operation name="CheckEligibleSubjects">
+                         <soap:operation soapAction="http://www.TURegistration.com/CheckEligibleSubjects" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+
+                        <operation name="SearchAdditionalSubjects">
+                         <soap:operation soapAction="http://www.TURegistration.com/SearchAdditionalSubjects" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+
+                        <operation name="RegisterSubjects">
+                          <soap:operation soapAction="http://www.TURegistration.com/RegisterSubjects" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+
+                      <operation name="VerifyRegistrationData">
+                         <soap:operation soapAction="http://www.TURegistration.com/VerifyRegistrationData" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+
+                       <operation name="InitiatePayment">
+                         <soap:operation soapAction="http://www.TURegistration.com/InitiatePayment" />
+
+                                    <input>
+                                       <soap:body use="literal" />
+                                    </input>
+
+                                    <output>
+                                        <soap:body use="literal" />
+                                    </output>
+
+                        </operation>
+            </binding>
+
+
+             <service name="CourseRegistrationService">
+             <port name="CourseRegistrationPort" 
+            binding="tns:CourseRegistrationSoapBinding">
+             <soap:address location="http://www.TURegistration.com/course-registration" />
+             </port>
+             </service>
+             
 </xs:schema>
