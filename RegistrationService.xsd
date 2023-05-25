@@ -270,55 +270,49 @@
     </xs:complexType>
   </xs:element>
             
- <--! Assign Message -->
- <message name="CheckEligibleSubjectsInput">
-            <part name="body" element="xsdl:TradePriceRequest" />
- </message>
-             
- <message name="CheckEligibleSubjectsOutput">
-            <part name="body" element="xsdl:TradePriceRespond" />
- </message>
-             
- <message name="SearchAdditionalSubjectsInput">
-             <part name="body" element="xsdl:StockInfoRequest" />
- </message>
-             
- <message name="SearchAdditionalSubjectsOutput">
-            <part name="body" element="xsdl:StockInfoRespond" />
- </message>
-             
- <message name="RegisterSubjectsInput">
-            <part name="body" element="xsdl:RegisterSubjectsRequest" />
- </message>
-             
- <message name="RegisterSubjectsOutput">
-            <part name="body" element="xsdl:RegisterSubjectsRespond" />
- </message>    
-             
- <message name="VerifyRegistrationDataInput">
-            <part name="body" element="xsdl:VerifyRegistrationDataRequest" />
- </message>
-             
- <message name="VerifyRegistrationDataOutput">
-            <part name="body" element="xsdl:VerifyRegistrationDataRespond" />
- </message>  
-             
- <message name="InitiatePaymentInput">
-            <part name="body" element="xsdl:InitiatePaymentRequest" />
- </message>
-             
- <message name="InitiatePaymentOutput">
-            <part name="body" element="xsdl:InitiatePaymentRespond" />
- </message>  
- 
- <message name="getSubjectsDataInput">
-            <part name="body" element="xsdl:getSubjectsDataRequest" />
- </message>
-             
- <message name="getSubjectsDataOutput">
-            <part name="body" element="xsdl:getSubjectsDataRespond" />
- </message>  
-            
+ <!-- Assign Message -->
+<!-- Message for CheckEligibleSubjects operation -->
+<message name="CheckEligibleSubjectsInput">
+    <part name="body" element="xsdl:TradePriceRequest" />
+</message>
+<message name="CheckEligibleSubjectsOutput">
+    <part name="body" element="xsdl:TradePriceRespond" />
+</message>
+<!-- Message for SearchAdditionalSubjects operation -->
+<message name="SearchAdditionalSubjectsInput">
+    <part name="body" element="xsdl:StockInfoRequest" />
+</message>
+<message name="SearchAdditionalSubjectsOutput">
+    <part name="body" element="xsdl:StockInfoRespond" />
+</message>
+<!-- Message for RegisterSubjects operation -->
+<message name="RegisterSubjectsInput">
+    <part name="body" element="xsdl:RegisterSubjectsRequest" />
+</message>
+<message name="RegisterSubjectsOutput">
+    <part name="body" element="xsdl:RegisterSubjectsRespond" />
+</message>
+<!-- Message for VerifyRegistrationData operation -->
+<message name="VerifyRegistrationDataInput">
+    <part name="body" element="xsdl:VerifyRegistrationDataRequest" />
+</message>
+<message name="VerifyRegistrationDataOutput">
+    <part name="body" element="xsdl:VerifyRegistrationDataRespond" />
+</message>
+<!-- Message for InitiatePayment operation -->
+<message name="InitiatePaymentInput">
+    <part name="body" element="xsdl:InitiatePaymentRequest" />
+</message>
+<message name="InitiatePaymentOutput">
+    <part name="body" element="xsdl:InitiatePaymentRespond" />
+</message>
+<!-- Message for getSubjectsData operation -->
+<message name="getSubjectsDataInput">
+    <part name="body" element="xsdl:getSubjectsDataRequest" />
+</message>
+<message name="getSubjectsDataOutput">
+    <part name="body" element="xsdl:getSubjectsDataRespond" />
+</message>            
           
 <!-- PORT -->
  <portType name="CourseRegistrationPortType">
@@ -444,4 +438,3 @@
 </service>
 
 </xs:schema>
-
