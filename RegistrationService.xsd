@@ -1,5 +1,22 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TURegistration.com/course-registration">
-  
+<!--
+#Registration Service
+#Operation 1 : CheckEligibleSubjects
+#Operation 2 : SearchAdditionalSubjects
+#Operation 3 : RegisterSubjects
+#Operation 4 : VerifyRegistrationData
+#Operation 5 : InitiatePayment
+-->
+<definition name="CourseRegistration"    
+            targetNamespace="http://www.TURegistration.com/course-registration.wsdl"    
+            xmlns:tns="http://www.TURegistration.com/course-registration.wsdl"    
+            xmlns:xsdl="http://www.TURegistration.com/course-registration.xsd"    
+            xmlns:soap="http://TURegistration.xmlsoap.org/wsdl/soap/"    
+            xmlns="http://TURegistration.xmlsoap.org/soap/wsdl/">
+  <type>
+    
+    <schema targetNamespace="http://www.TURegistration.com/course-registration.xsd"
+ xmlns="http://www.w3.org/2000/10/XMLSchema">
+   
   <!-- Define Custom types -->
   <xs:simpleType name="StudentCodeType">
     <xs:restriction base="xs:string">
@@ -38,13 +55,16 @@
     </xs:restriction>
   </xs:simpleType>
   
-  <xs:complexType name="TestDateType">
+  <xs:complexType name="StudyDateType">
     <xs:sequence>
       <xs:element name="Day" type="DayOfWeekType"/>
       <xs:element name="Time" type="xs:string"/> 
       <xs:element name="Notation" type="xs:string"/> 
     </xs:sequence>
   </xs:complexType>
+
+      </schema>
+  </type>
   
   <!-- Define Request elements -->
   <xs:element name="CheckEligibleSubjectsRequest">
@@ -124,9 +144,9 @@
               <xs:element name="SubjectName" type="xs:string"/> 
               <xs:element name="SubjectCode" type="SubjectCodeType"/> 
               <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="TestDateType"/> 
-              <xs:element name="MidtermTestDate" type="TestDateType"/> 
-              <xs:element name="FinalTestDate" type="TestDateType"/> 
+              <xs:element name="StudyTime" type="StudyDateType"/> 
+              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+              <xs:element name="FinalTestDate" type="StudyDateType"/> 
               <xs:element name="Credits" type="xs:int"/> 
               <xs:element name="Instructor" type="xs:string"/> 
               <xs:element name="Seats" type="xs:int"/> 
@@ -149,9 +169,9 @@
               <xs:element name="SubjectName" type="xs:string"/> 
               <xs:element name="SubjectCode" type="SubjectCodeType"/> 
               <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="TestDateType"/> 
-              <xs:element name="MidtermTestDate" type="TestDateType"/> 
-              <xs:element name="FinalTestDate" type="TestDateType"/> 
+              <xs:element name="StudyTime" type="StudyDateType"/> 
+              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+              <xs:element name="FinalTestDate" type="StudyDateType"/> 
               <xs:element name="Credits" type="xs:int"/> 
               <xs:element name="Instructor" type="xs:string"/> 
               <xs:element name="Seats" type="xs:int"/> 
@@ -166,6 +186,7 @@
   <xs:element name="VerifyRegistrationDataResponse">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="Status" type="xs:string"/> 
         <xs:element name="Result" type="xs:string"/> 
       </xs:sequence>
     </xs:complexType>
