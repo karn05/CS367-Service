@@ -156,119 +156,135 @@
 </xs:element>
 <!-- Request element for getting subjects data. Contains the student code and semester. -->
 
-  <!-- Define Response message -->
-  <xs:element name="CheckEligibleSubjectsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Subject" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectName" type="xs:string"/> 
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="StudyDateType"/> 
-              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
-              <xs:element name="FinalTestDate" type="StudyDateType"/> 
-              <xs:element name="Credits" type="xs:int"/> 
-              <xs:element name="Instructor" type="xs:string"/> 
-              <xs:element name="Seats" type="xs:int"/> 
-              <xs:element name="SeatsLeft" type="xs:int"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="TotalCredits" type="xs:int"/> 
-        <xs:element name="TotalMoney" type="xs:decimal"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="SearchAdditionalSubjectsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Subject" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectName" type="xs:string"/> 
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="StudyDateType"/> 
-              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
-              <xs:element name="FinalTestDate" type="StudyDateType"/> 
-              <xs:element name="Credits" type="xs:int"/> 
-              <xs:element name="Instructor" type="xs:string"/> 
-              <xs:element name="Seats" type="xs:int"/> 
-              <xs:element name="SeatsLeft" type="xs:int"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="RegisterSubjectsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Subject" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectName" type="xs:string"/> 
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="StudyDateType"/> 
-              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
-              <xs:element name="FinalTestDate" type="StudyDateType"/> 
-              <xs:element name="Credits" type="xs:int"/> 
-              <xs:element name="Instructor" type="xs:string"/> 
-              <xs:element name="Seats" type="xs:int"/> 
-              <xs:element name="SeatsLeft" type="xs:int"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="TotalCredits" type="xs:int"/> 
-        <xs:element name="TotalMoney" type="xs:decimal"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-            
-  <xs:element name="VerifyRegistrationDataResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Status" type="xs:string"/> 
-        <xs:element name="Result" type="xs:string"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="InitiatePaymentResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="TotalAmount" type="xs:decimal"/> 
-        <xs:element name="DueDate" type="xs:string"/> 
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-            
-            
-  <xs:element name="getSubjectsDataResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Subject" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="SubjectName" type="xs:string"/> 
-              <xs:element name="SubjectCode" type="SubjectCodeType"/> 
-              <xs:element name="Section" type="SectionType"/> 
-              <xs:element name="StudyTime" type="StudyDateType"/> 
-              <xs:element name="MidtermTestDate" type="StudyDateType"/> 
-              <xs:element name="FinalTestDate" type="StudyDateType"/> 
-              <xs:element name="Credits" type="xs:int"/> 
-              <xs:element name="Instructor" type="xs:string"/> 
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<!-- Define Response message for CheckEligibleSubjects -->
+<xs:element name="CheckEligibleSubjectsResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the structure of each Subject element -->
+      <xs:element name="Subject" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <!-- Define the elements within Subject, specifying their names and types -->
+            <xs:element name="SubjectName" type="xs:string"/> 
+            <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+            <xs:element name="Section" type="SectionType"/> 
+            <xs:element name="StudyTime" type="StudyDateType"/> 
+            <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+            <xs:element name="FinalTestDate" type="StudyDateType"/> 
+            <xs:element name="Credits" type="xs:int"/> 
+            <xs:element name="Instructor" type="xs:string"/> 
+            <xs:element name="Seats" type="xs:int"/> 
+            <xs:element name="SeatsLeft" type="xs:int"/> 
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- Define the total credits and total money elements -->
+      <xs:element name="TotalCredits" type="xs:int"/> 
+      <xs:element name="TotalMoney" type="xs:decimal"/> 
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- Define Response message for SearchAdditionalSubjects -->
+<xs:element name="SearchAdditionalSubjectsResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the structure of each Subject element -->
+      <xs:element name="Subject" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <!-- Define the elements within Subject, specifying their names and types -->
+            <xs:element name="SubjectName" type="xs:string"/> 
+            <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+            <xs:element name="Section" type="SectionType"/> 
+            <xs:element name="StudyTime" type="StudyDateType"/> 
+            <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+            <xs:element name="FinalTestDate" type="StudyDateType"/> 
+            <xs:element name="Credits" type="xs:int"/> 
+            <xs:element name="Instructor" type="xs:string"/> 
+            <xs:element name="Seats" type="xs:int"/> 
+            <xs:element name="SeatsLeft" type="xs:int"/> 
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- Define Response message for RegisterSubjects -->
+<xs:element name="RegisterSubjectsResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the structure of each Subject element -->
+      <xs:element name="Subject" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <!-- Define the elements within Subject, specifying their names and types -->
+            <xs:element name="SubjectName" type="xs:string"/> 
+            <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+            <xs:element name="Section" type="SectionType"/> 
+            <xs:element name="StudyTime" type="StudyDateType"/> 
+            <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+            <xs:element name="FinalTestDate" type="StudyDateType"/> 
+            <xs:element name="Credits" type="xs:int"/> 
+            <xs:element name="Instructor" type="xs:string"/> 
+            <xs:element name="Seats" type="xs:int"/> 
+            <xs:element name="SeatsLeft" type="xs:int"/> 
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- Define the total credits and total money elements -->
+      <xs:element name="TotalCredits" type="xs:int"/> 
+      <xs:element name="TotalMoney" type="xs:decimal"/> 
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- Define Response message for VerifyRegistrationData -->
+<xs:element name="VerifyRegistrationDataResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the elements for the status and result of the verification -->
+      <xs:element name="Status" type="xs:string"/> 
+      <xs:element name="Result" type="xs:string"/> 
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- Define Response message for InitiatePayment -->
+<xs:element name="InitiatePaymentResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the elements for the total payment amount and due date -->
+      <xs:element name="TotalAmount" type="xs:decimal"/> 
+      <xs:element name="DueDate" type="xs:string"/> 
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!-- Define Response message for getSubjectsData -->
+<xs:element name="getSubjectsDataResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <!-- Define the structure of each Subject element -->
+      <xs:element name="Subject" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <!-- Define the elements within Subject, specifying their names and types -->
+            <xs:element name="SubjectName" type="xs:string"/> 
+            <xs:element name="SubjectCode" type="SubjectCodeType"/> 
+            <xs:element name="Section" type="SectionType"/> 
+            <xs:element name="StudyTime" type="StudyDateType"/> 
+            <xs:element name="MidtermTestDate" type="StudyDateType"/> 
+            <xs:element name="FinalTestDate" type="StudyDateType"/> 
+            <xs:element name="Credits" type="xs:int"/> 
+            <xs:element name="Instructor" type="xs:string"/> 
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
             
  <!-- Assign Message -->
 <!-- Message for CheckEligibleSubjects operation -->
